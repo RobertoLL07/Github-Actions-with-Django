@@ -11,7 +11,6 @@ on:
 
 jobs:
   build:
-  
     runs-on: ubuntu-latest
     
     services:
@@ -38,10 +37,6 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Install db
-      uses: harmon758/postgresql-action@v1
-      with:
-        postgresql version: '12'
     - name: Run migrations
       run: python manage.py migrate
     - name: Run tests
